@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     
-    <style>
-        .welcome { color: #333; }
-    </style>
+    
 </head>
 <body>
     <header>
@@ -31,7 +29,14 @@
             <p>Stay updated with the <strong>latest</strong> in gaming!</p>
             <em>Join the discussion today.</em>
         </section>
-        
+        <!-- Part B: Fonts demo — explicitly show serif and monospace examples -->
+        <!-- Uses .serif and .mono classes defined in styles.css to demonstrate three font families (sans, serif, mono) -->
+        <section class="fonts-demo">
+            <h3>Fonts Demo</h3>
+            <p class="serif">This line demonstrates a <strong>serif</strong> font family using the <code>.serif</code> class.</p>
+            <p class="mono">This line demonstrates a <strong>monospace</strong> font using the <code>.mono</code> class (good for code or fixed-width text).</p>
+        </section>
+
         <section>
             <h3>Featured Games</h3>
             <ul>
@@ -100,6 +105,20 @@
                 <input type="color" id="color" name="color"><br>
                 <button type="submit">Submit</button>
             </form>
+        </section>
+
+        <!-- Part D: Profile card demo -->
+        <!-- .profile-card (class) is reusable; #author (ID) is used for the unique styling and hover highlight -->
+        <section class="profile-section">
+            <h3>Meet the Author</h3>
+            <div class="profile-card" id="author">
+                <img src="assets/images/ed.webp" alt="Author photo">
+                <div class="profile-info">
+                    <h4 class="name">Ardak</h4>
+                    <p class="role">Site creator & reviewer</p>
+                    <p class="bio">I write reviews, curate gaming news, and host community events. This card uses a <code>.profile-card</code> class for reusable layout and <code>#author</code> for unique styling and hover effect.</p>
+                </div>
+            </div>
         </section>
     </main>
     

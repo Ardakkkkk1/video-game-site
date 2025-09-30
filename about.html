@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Game Hub — About</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
@@ -25,6 +25,19 @@
     <section class="container">
       <h1>About Game Hub</h1>
       <p>We are a small team of gamers producing reviews and news with honesty and passion.</p>
+
+      <p class="align-center">We center this sentence to demonstrate alignment.</p>
+      <p class="align-right">This sentence is right-aligned to show different alignment utilities.</p>
+
+      <!-- Part A: selector priority demo (compact) -->
+      <!-- This section demonstrates element, class, ID, and inline styles -->
+      <section class="selector-compact">
+        <h3>Selector Priority (compact)</h3>
+        <p>This is the element selector (default).</p>
+        <p class="note">This paragraph uses the <code>.note</code> class (class selector).</p>
+        <p id="special">This paragraph uses the <code>#special</code> ID selector (ID selector).</p>
+        <p id="special-inline" style="color: purple;">This paragraph uses an <strong>inline</strong> style (inline &gt; ID &gt; class &gt; element).</p>
+      </section>
 
       <section class="card position-demo" aria-label="Position demo">
         <p class="relative-box">This block is <strong>position: relative</strong> (demo).</p>
