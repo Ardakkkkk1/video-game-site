@@ -2,42 +2,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>GameHub - Reviews</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GameHub - Reviews</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <h1>GameHub</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="news.html">News</a></li>
-            </ul>
-        </nav>
-    </header>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">GameHub</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mainNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="reviews.html">Reviews</a></li>
+                            <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
     
-    <main>
-        <section>
-            <h2>Game Reviews</h2>
-            <p class="lead">In-depth reviews with consistent spacing and readable line-height.</p>
-            <article>
-                <h3>Elden Ring Review</h3>
-                <p>An epic open-world adventure.</p>
-                <img src="assets/images/ed.webp" alt="Elden Ring game cover">
-            </article>
-            <article>
-                <h3>God of War Review</h3>
-                <p>A mythological masterpiece.</p>
-                <img src="assets/images/godofwar.jpg" alt="God of War game cover">
-            </article>
-        </section>
-    </main>
+        <main class="py-4">
+            <div class="container">
+                <section>
+                    <h2>Game Reviews</h2>
+                    <p class="lead">In-depth reviews with consistent spacing and readable line-height.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <article class="card mb-3">
+                                <div class="card-body">
+                                    <h3 class="card-title">Elden Ring Review</h3>
+                                    <p class="card-text">An epic open-world adventure.</p>
+                                </div>
+                                <img src="assets/images/ed.webp" class="card-img-bottom" alt="Elden Ring game cover">
+                            </article>
+                        </div>
+                        <div class="col-md-6">
+                            <article class="card mb-3">
+                                <div class="card-body">
+                                    <h3 class="card-title">God of War Review</h3>
+                                    <p class="card-text">A mythological masterpiece.</p>
+                                </div>
+                                <img src="assets/images/godofwar.jpg" class="card-img-bottom" alt="God of War game cover">
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
     
-    <footer>
-        <p>&copy; 2025 GameHub. All rights reserved.</p>
-    </footer>
+        <footer class="bg-dark text-light py-3 mt-4">
+            <div class="container text-center">
+                <p class="mb-0">&copy; 2025 GameHub. All rights reserved.</p>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#f7f8fb"/>
+  <rect x="40" y="40" width="1120" height="80" rx="8" fill="#e6eef6" />
+  <text x="60" y="92" font-family="Segoe UI, Arial" font-size="28" fill="#0f1724">Header / Navbar</text>
+  <rect x="40" y="140" width="760" height="420" rx="8" fill="#ffffff" stroke="#dbeafe"/>
+  <text x="60" y="170" font-family="Segoe UI, Arial" font-size="20" fill="#0f1724">Main content (grid / carousel / articles)</text>
+  <rect x="820" y="140" width="340" height="200" rx="8" fill="#ffffff" stroke="#dbeafe"/>
+  <text x="840" y="170" font-family="Segoe UI, Arial" font-size="18" fill="#0f1724">Sidebar (links / contact)</text>
+  <rect x="820" y="360" width="340" height="200" rx="8" fill="#ffffff" stroke="#dbeafe"/>
+  <text x="840" y="390" font-family="Segoe UI, Arial" font-size="18" fill="#0f1724">Profile Card / Widgets</text>
+  <rect x="40" y="580" width="1120" height="140" rx="8" fill="#e6eef6" />
+  <text x="60" y="620" font-family="Segoe UI, Arial" font-size="18" fill="#0f1724">Footer</text>
+</svg>

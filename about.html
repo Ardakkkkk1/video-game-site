@@ -2,73 +2,136 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Game Hub — About</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Hub — About</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="logo">🎮 Game Hub</div>
-      <nav aria-label="Main navigation">
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="reviews.html">Reviews</a></li>
-          <li><a href="news.html">News</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">GameHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+            <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+            <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </header>
 
-  <main>
-    <section class="container">
-      <h1>About Game Hub</h1>
-      <p>We are a small team of gamers producing reviews and news with honesty and passion.</p>
-
-      <p class="align-center">We center this sentence to demonstrate alignment.</p>
-      <p class="align-right">This sentence is right-aligned to show different alignment utilities.</p>
-
-      <!-- Part A: selector priority demo (compact) -->
-      <!-- This section demonstrates element, class, ID, and inline styles -->
-      <section class="selector-compact">
-        <h3>Selector Priority (compact)</h3>
-        <p>This is the element selector (default).</p>
-        <p class="note">This paragraph uses the <code>.note</code> class (class selector).</p>
-        <p id="special">This paragraph uses the <code>#special</code> ID selector (ID selector).</p>
-        <p id="special-inline" style="color: purple;">This paragraph uses an <strong>inline</strong> style (inline &gt; ID &gt; class &gt; element).</p>
+  <main class="py-4">
+  <div class="container">
+      <section class="hero p-4 mb-4">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <h1 class="display-6 text-white">About GameHub</h1>
+            <p class="lead text-white">We are a small team of gamers producing reviews and news with honesty and passion. Our goal is to help players find great experiences and share opinions fairly.</p>
+          </div>
+        </div>
       </section>
 
-      <section class="card position-demo" aria-label="Position demo">
-        <p class="relative-box">This block is <strong>position: relative</strong> (demo).</p>
-        <span class="absolute-badge">Badge</span> 
+      <div class="site-panel mb-4 p-4">
+        <h2>Who we are</h2>
+        <p>GameHub started as a small review blog and grew into a community hub. We value clear, helpful reviews and timely news.</p>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <h3>Our Values</h3>
+            <ul>
+              <li>Honest reviews</li>
+              <li>Community-first approach</li>
+              <li>Accessibility and inclusion</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h3>Quick Stats</h3>
+            <p><strong>100+</strong> reviews published<br><strong>10k+</strong> monthly readers</p>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- Part A: selector priority demo (compact) -->
+        <section class="selector-compact">
+          <h4>Selector Priority (compact)</h4>
+          <p>This is the element selector (default).</p>
+          <p class="note">This paragraph uses the <code>.note</code> class (class selector).</p>
+          <p id="special">This paragraph uses the <code>#special</code> ID selector (ID selector).</p>
+          <p id="special-inline" style="color: purple;">This paragraph uses an <strong>inline</strong> style (inline &gt; ID &gt; class &gt; element).</p>
+        </section>
+
+        <section class="card position-demo mt-3 p-3" aria-label="Position demo">
+          <p class="relative-box">This block is <strong>position: relative</strong> (demo).</p>
+          <span class="absolute-badge">Badge</span> 
+        </section>
+
+        <h3 class="mt-4">Weekly Schedule</h3>
+        <table class="card mt-2">
+          <thead>
+            <tr><th>Subject</th><th>Day</th><th>Time</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Multiplayer Night</td><td>Friday</td><td>19:00</td></tr>
+            <tr><td>Indie Spotlight</td><td>Wednesday</td><td>18:00</td></tr>
+          </tbody>
+        </table>
+
+        <aside class="card mt-3 p-3" aria-label="Contact info">
+          <h3>Contact</h3>
+          <address>
+            Email: <a href="mailto:info@gamehub.com">info@gamehub.com</a><br>
+            Location: Game Hub Studio
+          </address>
+        </aside>
+      </div>
+
+      <section class="team mb-4">
+        <h3>Meet the team</h3>
+        <div class="row g-3 mt-2 team-grid">
+          <div class="col-12 col-md-4">
+            <div class="card p-3 text-center">
+              <img src="assets/images/ed.webp" class="rounded-circle mx-auto d-block" style="width:100px; height:100px; object-fit:cover;" alt="Team member">
+              <h5 class="mt-2 mb-0">Ardak</h5>
+              <p class="text-muted small mb-1">Founder & Reviewer</p>
+              <p class="small">Leads reviews and community events.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="card p-3 text-center">
+              <img src="assets/images/godofwar.jpg" class="rounded-circle mx-auto d-block" style="width:100px; height:100px; object-fit:cover;" alt="Team member">
+              <h5 class="mt-2 mb-0">Sam</h5>
+              <p class="text-muted small mb-1">Editor</p>
+              <p class="small">Covers news and editorial pieces.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="card p-3 text-center">
+              <img src="assets/images/tf2.jpeg" class="rounded-circle mx-auto d-block" style="width:100px; height:100px; object-fit:cover;" alt="Team member">
+              <h5 class="mt-2 mb-0">Steve</h5>
+              <p class="text-muted small mb-1">Producer</p>
+              <p class="small">Runs community streams and events.</p>
+            </div>
+          </div>
+        </div>
       </section>
-
-      <h2>Weekly Schedule</h2>
-      <table class="card">
-        <thead>
-          <tr><th>Subject</th><th>Day</th><th>Time</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Multiplayer Night</td><td>Friday</td><td>19:00</td></tr>
-          <tr><td>Indie Spotlight</td><td>Wednesday</td><td>18:00</td></tr>
-        </tbody>
-      </table>
-
-      <aside class="card" aria-label="Contact info">
-        <h3>Contact</h3>
-        <address>
-          Email: <a href="mailto:info@gamehub.com">info@gamehub.com</a><br>
-          Location: Game Hub Studio
-        </address>
-      </aside>
-    </section>
+    </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; 2025 Game Hub — About</p>
+  <footer class="bg-dark text-light py-3 mt-4">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2025 Game Hub — About</p>
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

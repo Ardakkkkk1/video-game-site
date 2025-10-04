@@ -3,40 +3,85 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GameHub - News</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <h1>GameHub</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="news.html">News</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <section>
-            <h2>Gaming News</h2>
-            <p class="lead">Latest headlines and summaries (uses larger font-size and increased line-height).</p>
-            <article>
-                <h3>New Console Announced</h3>
-                <p>Details on the next-gen hardware.</p>
-                <time datetime="2025-09-20">September 20, 2025</time>
-            </article>
-            <article>
-                <h3>Esports Tournament Results</h3>
-                <p>Winners and highlights.</p>
-            </article>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 GameHub. All rights reserved.</p>
-    </footer>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">GameHub</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mainNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="news.html">News</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="py-4 news-main">
+            <div class="container-xl px-3 news-content">
+                <section class="site-panel">
+                    <div class="news-hero mb-3">
+                        <h2 class="mb-2">Gaming News</h2>
+                        <p class="lead">Latest updates, releases and esports highlights — short, visual cards for quick reading.</p>
+                    </div>
+
+                    <div class="news-grid row g-4" aria-live="polite">
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <article class="card h-100">
+                                <img src="assets/images/SonyPS5ProwithLogo.jpg" class="card-img-top" alt="God of War announcement">
+                                <div class="card-body d-flex flex-column">
+                                    <h3 class="card-title h5">New Console Announced</h3>
+                                    <p class="text-muted news-date mb-2"><time datetime="2025-09-20">September 20, 2025</time></p>
+                                    <p class="card-text flex-grow-1">Details on the next‑gen hardware that promises immersive performance and a redesigned controller.</p>
+                                    <a href="#" class="btn btn-primary mt-3 align-self-start">Read more</a>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <article class="card h-100">
+                                <img src="assets/images/cs2.jpg" class="card-img-top" alt="Esports highlights">
+                                <div class="card-body d-flex flex-column">
+                                    <h3 class="card-title h5">Esports Tournament Results</h3>
+                                    <p class="text-muted news-date mb-2"><time datetime="2025-09-15">September 15, 2025</time></p>
+                                    <p class="card-text flex-grow-1">Championship highlights and the moments that defined the weekend's matches.</p>
+                                    <a href="#" class="btn btn-primary mt-3 align-self-start">Read more</a>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <article class="card h-100">
+                                <img src="assets/images/ed.webp" class="card-img-top" alt="Indie release">
+                                <div class="card-body d-flex flex-column">
+                                    <h3 class="card-title h5">Indie Release Preview</h3>
+                                    <p class="text-muted news-date mb-2"><time datetime="2025-09-10">September 10, 2025</time></p>
+                                    <p class="card-text flex-grow-1">A first look at the upcoming indie title receiving praise at recent festivals.</p>
+                                    <a href="#" class="btn btn-primary mt-3 align-self-start">Read more</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="bg-dark text-light py-3 mt-4">
+            <div class="container text-center">
+                <p class="mb-0">&copy; 2025 GameHub. All rights reserved.</p>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

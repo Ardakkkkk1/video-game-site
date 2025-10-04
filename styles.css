@@ -48,53 +48,48 @@ footer {
     width: 100%;
 }
 
-/* 
-   styles.css — Updated for Assignment: selectors, fonts,
-   colors, spacing, alignment, classes & IDs demo
- */
+/* Student stylesheet for the assignment
+    I wrote these styles to show selectors, fonts, spacing, and a small profile card.
+    Comments are casual notes about why each rule exists. */
 
-/* Assignment mapping:
-    Part A (Selectors & Priority): rules for element, class, ID, and guidance about inline styles
-    Part B (Colors & Fonts): color palette, hover colors, and font-family rules (.serif, .mono, body)
-    Part C (Spacing & Alignment): margin/padding, line-height, alignment helpers (.align-center, .align-right, .justify)
-    Part D (Classes & IDs Practical): .profile-card (reusable class) and #author (unique ID) with hover
-*/
-
-/* --- CSS Reset (minimal) --- */
+/* small reset so browsers behave similarly (box-sizing and base height) */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, sans-serif; /* default sans-serif */
-  background: linear-gradient(180deg,#f7f8fb 0%,#eef2f6 100%);
-  color: #222;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, sans-serif; /* default sans-serif */
+    background: linear-gradient(180deg,#f7f8fb 0%,#eef2f6 100%);
+    color: #222;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* --- Typography: demonstrate three font families --- */
+/* typography examples: default sans, plus a serif and monospace demo */
 body { font-family: 'Segoe UI', Tahoma, sans-serif; } /* sans-serif */
 .serif { font-family: 'Georgia', 'Times New Roman', serif; } /* serif */
 .mono { font-family: 'Courier New', Courier, monospace; } /* monospace */
 
-/* Headings */
-h1 { font-size: 2.25rem; margin: 0 0 .5rem; }
-h2 { font-size: 1.75rem; margin: .75rem 0; }
-h3 { font-size: 1.25rem; margin: .5rem 0; }
+/* heading sizes used across pages */
+h1 { font-size: 2.25rem; margin: 0 0 .5rem; font-weight: 700; }
+h2 { font-size: 1.75rem; margin: .75rem 0; font-weight: 600; }
+h3 { font-size: 1.25rem; margin: .5rem 0; font-weight: 600; }
 
-/* Header & Nav */
-header {
-  background: #0f1724; color: #fff; padding: 18px 24px; border-bottom: 4px solid #0b3a66;
+/* Header & Nav: I'm using Bootstrap's navbar on every page, so I don't override it here */
+
+/* Let Bootstrap control widths — don't lock main's width here */
+main { flex: 1; margin: 24px auto; padding: 0 16px; }
+
+/* News tweaks: make the news area a bit wider on big screens but keep it centered and responsive */
+.news-main { max-width: none; }
+.news-content { width: 100%; max-width: 1200px; margin: 0 auto; padding-left: 8px; padding-right: 8px; }
+@media (max-width: 1200px) {
+    .news-content { max-width: 100%; padding-left: 12px; padding-right: 12px; }
 }
-header h1 { display: inline-block; margin-right: 24px; font-weight: 700; }
-nav ul { list-style: none; padding: 0; margin: 0; display: inline-block; }
-nav ul li { display: inline; margin-right: 16px; }
-nav a { color: #dbeafe; text-decoration: none; font-weight: 600; }
-nav a:hover { color: #ffd166; }
 
-main { max-width: 1000px; margin: 24px auto; padding: 0 16px; }
-
-/* --- Selector & Priority Demo --- */
+/* selector demo: element, class and ID examples to show specificity */
 /* element selector */
 p { color: #333; }
 /* class selector */
@@ -103,30 +98,32 @@ p { color: #333; }
 #special { color: #d62828; font-weight: 700; }
 /* inline styles in HTML will override all of the above */
 
-.selector-demo { background: #fff; padding: 16px; border-radius: 8px; box-shadow: 0 6px 18px rgba(11,20,40,0.06); margin-bottom: 18px; }
+.selector-demo { background: #fff; padding: 16px; border-radius: 8px; margin-bottom: 18px; }
 
-/* --- Colors & Link hovers --- */
+/* link colors and hover color I picked for the site */
 a { color: #0b6cf2; }
 a:hover { color: #ff7a59; }
 
-/* lead paragraph for News/Reviews */
+/* lead paragraph style for page intros */
 .lead { font-size: 1.05rem; line-height: 1.9; color: #334155; margin-bottom: 12px; }
 
-/* --- Spacing & Alignment --- */
+/* small helpers for text alignment used in demo sections */
 .align-center { text-align: center; }
 .align-right { text-align: right; }
 .justify { text-align: justify; }
 
-.container { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 6px 18px rgba(11,20,40,0.04); }
+/* I avoid changing Bootstrap's .container. Use .site-panel when I need a white boxed panel */
+.site-panel { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 6px 18px rgba(11,20,40,0.04); }
 
-/* Forms */
+/* form helpers — Bootstrap styles most inputs already */
 form { margin: 20px 0; }
 label { display: block; margin-bottom: 6px; font-size: 0.95rem; }
 /* Form controls: textareas and most inputs should be full-width for readability.
      Exclude color inputs so the browser color swatch/picker remains usable. */
-input, textarea, select { width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #d1d5db; border-radius: 6px; }
+/* Prefer Bootstrap form controls. Keep this rule minimal for legacy plain inputs. */
+input[type="text"], input[type="email"], textarea, select { width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #d1d5db; border-radius: 6px; }
 
-/* input[type=color] should not be stretched — keep it compact so the swatch/picker works */
+/* color input: keep compact so the browser's swatch/picker stays usable */
 input[type="color"] {
     display: inline-block;
     width: auto;
@@ -142,7 +139,7 @@ input[type="color"] {
     cursor: pointer;
 }
 
-/* Browser-specific color-swatch hooks (WebKit) to ensure correct swatch appearance */
+/* WebKit color-swatch tweaks so color inputs look consistent across browsers */
 input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0;
 }
@@ -150,46 +147,103 @@ input[type="color"]::-webkit-color-swatch {
     border: none;
     border-radius: 4px;
 }
-button { padding: 10px 16px; border: none; border-radius: 6px; background: #0b6cf2; color: #fff; font-weight: 600; }
-button:hover { background: #084ea8; }
+/* Mostly use Bootstrap buttons. .btn-custom is for a few places I didn't convert. */
+.btn-custom { padding: 10px 16px; border-radius: 6px; background: #0b6cf2; color: #fff; font-weight: 600; display: inline-block; border: none; }
+.btn-custom:hover { background: #084ea8; }
 
-/* Images */
+/* images: responsive defaults so they don't overflow */
 img { max-width: 100%; display: block; border-radius: 8px; }
 
-/* Table styling */
+/* simple table styles for schedules and small data tables */
 table { width: 100%; border-collapse: collapse; margin-top: 12px; }
 th, td { padding: 12px; border: 1px solid #e6eef6; }
 th { background: #f1f5f9; text-align: left; }
 tr:nth-child(even) { background: #fbfdff; }
 
-/* Aside */
+/* aside / small widgets */
 aside { background: #fbfbff; padding: 14px; border-radius: 8px; margin: 12px 0; }
 
-/* Article cards */
-article { padding: 16px; background: #fff; border-radius: 8px; box-shadow: 0 6px 18px rgba(11,20,40,0.03); margin-bottom: 16px; }
+/* basic article/card styling used on several pages */
+article { padding: 16px; background: #fff; border-radius: 8px; margin-bottom: 16px; }
 
-/* --- Profile Card: classes for reuse, ID for unique style --- */
+/* profile card styles for the demo author/profile */
 .profile-card { display: flex; gap: 14px; align-items: center; padding: 12px; border-radius: 10px; background: linear-gradient(180deg,#ffffff,#f7fbff); border: 1px solid #e6f0ff; max-width: 720px; }
 .profile-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 8px; }
 .profile-info .name { margin: 0 0 6px; font-size: 1.1rem; }
 .profile-info .role { margin: 0 0 8px; color: #475569; font-weight: 600; }
 .profile-info .bio { margin: 0; color: #334155; }
 
-/* unique ID - demonstrates using ID selector for single element */
-#author { border-color: #ffd166; box-shadow: 0 8px 30px rgba(255,129,48,0.08); }
+/* ID example to show higher specificity */
+#author { border-color: #ffd166; }
 
-/* hover effect for profile card - uses :hover pseudoclass */
+/* small hover lift so profile cards feel interactive */
 .profile-card:hover { transform: translateY(-4px); transition: transform 160ms ease; box-shadow: 0 12px 36px rgba(11,20,40,0.09); }
 
-/* Demonstrate inline > ID > class > element priority in comments: add a small helper */
+/* tiny helper class for showing selector priority in the demo */
 .note.important { color: #c026d3; }
 
-/* Footer */
-footer { background: #0f1724; color: #cbd5e1; text-align: center; padding: 16px; margin-top: 20px; }
+/* footer: appearance comes from Bootstrap utility classes (bg-dark, text-light, py-3) */
 
-/* Accessibility and small screens */
+/* small responsive tweaks for narrow screens */
 @media (max-width: 700px) {
-  .profile-card { flex-direction: column; align-items: flex-start; }
-  nav ul li { display: block; margin: 6px 0; }
+    .profile-card { flex-direction: column; align-items: flex-start; }
 }
+
+/* news cards: hover lift and consistent image crops */
+.news-grid .card { border: none; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(11,20,40,0.06); transition: transform 180ms ease, box-shadow 180ms ease; }
+.news-grid .card:hover { transform: translateY(-6px); box-shadow: 0 18px 48px rgba(11,20,40,0.12); }
+.news-grid .card-img-top { height: 180px; object-fit: cover; }
+.news-date { font-size: 0.9rem; }
+.news-hero h2 { margin-bottom: 0.25rem; }
+.news-hero .lead { margin-bottom: 0.6rem; }
+
+/* make news images a little smaller on very small screens */
+@media (max-width: 576px) {
+    .news-grid .card-img-top { height: 160px; }
+}
+
+.hero {
+    background: linear-gradient(180deg, rgba(11,108,242,0.95) 0%, rgba(7,59,138,0.95) 100%);
+    color: #fff;
+    border-radius: 12px;
+}
+.hero .lead { color: rgba(255,255,255,0.9); }
+.hero .btn-outline-light { border-color: rgba(255,255,255,0.18); }
+.hero img { box-shadow: 0 18px 48px rgba(11,20,40,0.18); border-radius: 10px; }
+
+/* hero styles for the home page (big gradient and CTAs) */
+.hero {
+    background: linear-gradient(180deg, rgba(11,108,242,0.95) 0%, rgba(7,59,138,0.95) 100%);
+    color: #fff;
+    border-radius: 12px;
+}
+.hero .lead { color: rgba(255,255,255,0.9); }
+.hero .btn-outline-light { border-color: rgba(255,255,255,0.18); }
+.hero img { box-shadow: 0 18px 48px rgba(11,20,40,0.18); border-radius: 10px; }
+
+/* carousel polish: cropped images and subtle shadow */
+.featured-carousel { border-radius: 12px; overflow: hidden; box-shadow: 0 12px 36px rgba(11,20,40,0.08); }
+.featured-carousel .carousel-item img { height: 360px; object-fit: cover; }
+@media (max-width: 768px) { .featured-carousel .carousel-item img { height: 220px; } }
+
+/* featured picks cards used on home */
+.featured-grid .card { border: none; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 28px rgba(11,20,40,0.06); transition: transform 160ms ease; }
+.featured-grid .card:hover { transform: translateY(-6px); }
+.featured-grid .card-img-top { height: 140px; object-fit: cover; }
+
+/* profile card tweaks for the home page */
+.profile-section .card { border-radius: 12px; box-shadow: 0 10px 36px rgba(11,20,40,0.06); overflow: hidden; }
+.profile-section .card img { height: 160px; object-fit: cover; }
+
+
+/* small padding helper used on some sections */
+.section-spacer { padding-top: 10px; padding-bottom: 10px; }
+
+/* about page: team cards and the main white panel */
+.team-grid .card { border: none; border-radius: 12px; box-shadow: 0 8px 28px rgba(11,20,40,0.06); }
+.site-panel { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 6px 18px rgba(11,20,40,0.04); }
+.selector-compact { background: #fbfdff; padding: 12px; border-radius: 8px; }
+.position-demo { position: relative; }
+.position-demo .absolute-badge { position: absolute; top: 8px; right: 8px; background: #0b6cf2; color: #fff; padding: 6px 10px; border-radius: 8px; font-size: 0.85rem; }
+.relative-box { margin: 0; }
 
