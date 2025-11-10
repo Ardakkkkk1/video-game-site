@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameHub — Tools</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">GameHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+            <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+            <li class="nav-item"><a class="nav-link" href="games.html">Games</a></li>
+            <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
+            <li class="nav-item"><a class="nav-link" href="todo.html">To-Do</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="jquery.html">jQuery</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="py-4">
+    <div class="container">
+      <section class="hero p-4 mb-4">
+        <h1 class="display-6 text-white">Tools & Utilities</h1>
+        <p class="lead text-white">A focused place for small utilities: number sorter, date/time, and theme controls.</p>
+      </section>
+
+      <section class="site-panel mb-4">
+        <h3>Number Sorting Tool</h3>
+        <p class="small text-muted">Enter numbers separated by commas and choose ascending or descending.</p>
+        <form id="sort-form" class="row g-2 align-items-center">
+          <div class="col-sm-8">
+            <input id="sort-input" class="form-control" placeholder="e.g. 5, 2, 9, 1">
+          </div>
+          <div class="col-sm-2">
+            <select id="sort-order" class="form-select">
+              <option value="asc">Ascending</option>
+              <option value="desc">Descending</option>
+            </select>
+          </div>
+          <div class="col-sm-2">
+            <button class="btn btn-primary w-100" type="submit">Sort</button>
+          </div>
+        </form>
+        <p class="visually-hidden" id="sort-output-label">Sorted result</p>
+        <p id="sort-output" class="mt-2" aria-live="polite" aria-labelledby="sort-output-label"></p>
+      </section>
+
+      <section class="site-panel mb-4">
+        <h3>Date & Theme</h3>
+        <div class="row g-3 align-items-center">
+          <div class="col-md-6">
+            <h5>Current date & time</h5>
+            <p id="current-datetime" class="mb-0"></p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <h5>Theme</h5>
+            <p class="small text-muted mb-2"> Use <strong>Change background</strong> to cycle subtle page backgrounds (also persisted).</p>
+            <div class="d-inline-flex gap-2">
+              <button id="bg-change" class="btn btn-outline-secondary">Change background</button>
+              <button data-reset-theme class="btn btn-link">Reset theme</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <h5 class="text-white mb-3">GameHub</h5>
+                <p class="text-light mb-0">Your ultimate destination for game reviews, news, and community.</p>
+            </div>
+            <div class="col-lg-4">
+                <h5 class="text-white mb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+                    <li class="mb-2"><a href="news.html" class="text-light text-decoration-none">Latest News</a></li>
+                    <li class="mb-2"><a href="reviews.html" class="text-light text-decoration-none">Game Reviews</a></li>
+                    <li class="mb-2"><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h5 class="text-white mb-3">Connect With Us</h5>
+                <div class="d-flex gap-3 mb-3">
+                    <a href="#" class="text-light fs-5"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-light fs-5"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-light fs-5"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-light fs-5"><i class="bi bi-youtube"></i></a>
+                </div>
+                <p class="small text-light mb-0">&copy; 2025 GameHub. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/sorter.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/nav-active.js"></script>
+</body>
+</html>

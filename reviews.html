@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +5,93 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>GameHub - Reviews</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
+        
+        <!-- Custom page styles -->
+        <style>
+            .review-meta span {
+                display: inline-flex;
+                align-items: center;
+                margin-right: 1rem;
+            }
+            .review-meta i {
+                margin-right: 0.5rem;
+                color: var(--accent-orange);
+            }
+            .game-rating {
+                font-size: 2rem;
+                letter-spacing: -0.5px;
+                margin-bottom: 0.5rem;
+            }
+            .badge {
+                padding: 0.5rem 1rem;
+                font-weight: 500;
+            }
+            .game-card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                border: none;
+                overflow: hidden;
+            }
+            .game-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            }
+            .game-card .card-body {
+                border-radius: 0 0 var(--bs-border-radius) var(--bs-border-radius);
+            }
+            .game-card .card-img-top {
+                height: 200px;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+            .game-card:hover .card-img-top {
+                transform: scale(1.05);
+            }
+            .bg-dark.bg-gradient {
+                background: linear-gradient(145deg, #1a1a1a, #2d2d2d) !important;
+            }
+            
+            /* Animations for the guessing game */
+            @keyframes bounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+            
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-10px); }
+                75% { transform: translateX(10px); }
+            }
+            
+            .animate-bounce {
+                animation: bounce 0.5s ease;
+            }
+            
+            .animate-shake {
+                animation: shake 0.5s ease;
+            }
+            
+            .progress-bar {
+                transition: width 0.5s ease-in-out;
+            }
+            
+            #guess-game .card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            
+            #guess-game .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            }
+            .badge.bg-warning {
+                background: linear-gradient(145deg, #ffc107, #ffcd39) !important;
+                font-weight: 600;
+                box-shadow: 0 2px 8px rgba(255,193,7,0.3);
+            }
+        </style>
 </head>
 <body>
         <header>
@@ -21,48 +104,263 @@
                     <div class="collapse navbar-collapse" id="mainNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link active" href="reviews.html">Reviews</a></li>
+                            <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
                             <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                            <li class="nav-item"><a class="nav-link" href="games.html">Games</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
+                            <li class="nav-item"><a class="nav-link" href="todo.html">To-Do</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="jquery.html">jQuery</a></li>
+                            <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                            <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
     
-        <main class="py-4">
-            <div class="container">
-                <section>
-                    <h2>Game Reviews</h2>
-                    <p class="lead">In-depth reviews with consistent spacing and readable line-height.</p>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <article class="card mb-3">
-                                <div class="card-body">
-                                    <h3 class="card-title">Elden Ring Review</h3>
-                                    <p class="card-text">An epic open-world adventure.</p>
+        <main>
+            <!-- Hero Section -->
+            <section class="hero mb-0">
+                <div class="container py-5">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 hero-content">
+                            <h1 class="display-4 mb-3">Game Reviews</h1>
+                            <p class="lead mb-4">Expert analysis, honest opinions, and in-depth coverage of the latest games.</p>
+                            <div class="d-flex gap-3">
+                                <a href="#latest-reviews" class="btn btn-light">Latest Reviews</a>
+                                <a href="#top-rated" class="btn btn-outline-light">Top Rated</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-none d-lg-block text-center">
+                            <img src="assets/images/godofwar.jpg" alt="Featured Game" class="img-fluid rounded-3 shadow-lg" style="max-height: 300px; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Latest Reviews -->
+            <section class="py-5 bg-light" id="latest-reviews">
+                <div class="container">
+                    <h2 class="h1 mb-4">Latest Reviews</h2>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <article class="game-card card h-100">
+                                <img src="assets/images/ed.webp" class="card-img-top" alt="Elden Ring">
+                                <div class="card-body text-white bg-dark bg-gradient">
+                                    <div class="game-rating text-warning fw-bold">9.5</div>
+                                    <h3 class="h4 text-warning">Elden Ring</h3>
+                                    <p class="text-light opacity-90 mb-3">FromSoftware's magnum opus redefines open-world gaming with its unparalleled sense of discovery and challenge.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-warning text-dark">Action RPG</span>
+                                        <small class="text-light opacity-75">March 15, 2024</small>
+                                    </div>
                                 </div>
-                                <img src="assets/images/ed.webp" class="card-img-bottom" alt="Elden Ring game cover">
                             </article>
                         </div>
-                        <div class="col-md-6">
-                            <article class="card mb-3">
-                                <div class="card-body">
-                                    <h3 class="card-title">God of War Review</h3>
-                                    <p class="card-text">A mythological masterpiece.</p>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="game-card card h-100">
+                                <img src="assets/images/godofwar.jpg" class="card-img-top" alt="God of War">
+                                <div class="card-body text-white bg-dark bg-gradient">
+                                    <div class="game-rating text-warning fw-bold">9.8</div>
+                                    <h3 class="h4 text-warning">God of War Ragnarök</h3>
+                                    <p class="text-light opacity-90 mb-3">An epic conclusion to the Norse saga, featuring stunning visuals and emotional storytelling.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-warning text-dark">Action Adventure</span>
+                                        <small class="text-light opacity-75">March 10, 2024</small>
+                                    </div>
                                 </div>
-                                <img src="assets/images/godofwar.jpg" class="card-img-bottom" alt="God of War game cover">
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="game-card card h-100">
+                                <img src="assets/images/tf2.jpeg" class="card-img-top" alt="Team Fortress 2">
+                                <div class="card-body text-white bg-dark bg-gradient">
+                                    <div class="game-rating text-warning fw-bold">8.9</div>
+                                    <h3 class="h4 text-warning">Team Fortress 2</h3>
+                                    <p class="text-light opacity-90 mb-3">The timeless team-based shooter continues to deliver endless entertainment.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-warning text-dark">Multiplayer FPS</span>
+                                        <small class="text-light opacity-75">March 5, 2024</small>
+                                    </div>
+                                </div>
                             </article>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
+
+            <!-- Guessing Game -->
+            <section class="py-5 bg-dark" id="guess-game">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="card shadow-lg">
+                                <div class="card-body p-4">
+                                    <h2 class="h3 mb-4 text-center">Number Guessing Game</h2>
+                                    <p class="text-center mb-4">Guess a number between 1 and 100. Try to get it in as few attempts as possible!</p>
+                                    
+                                    <div id="guess-feedback" class="mb-1 fw-bold text-center">Click Start to begin!</div>
+                                    <div id="guess-attempts" class="small text-muted text-center mb-3"></div>
+                                    
+                                    <div class="progress mb-4" style="height: 20px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" 
+                                             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <input type="number" id="guess-input" class="form-control form-control-lg text-center" 
+                                               placeholder="Enter your guess" min="1" max="100" disabled>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <button id="guess-start" class="btn btn-success">Start Game</button>
+                                        <button id="guess-submit" class="btn btn-primary" disabled>Submit Guess</button>
+                                        <button id="guess-reset" class="btn btn-outline-secondary">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Review Categories -->
+            <section class="py-5">
+                <div class="container">
+                    <h2 class="h1 mb-4">Browse by Genre</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="featured-card card">
+                                <img src="assets/images/ed.webp" class="card-img" alt="RPG Games">
+                                <div class="card-body">
+                                    <h3 class="h4 mb-2">RPG Games</h3>
+                                    <p class="mb-3">Epic adventures and immersive worlds</p>
+                                    <a href="#" class="btn btn-light btn-sm">View Reviews</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="featured-card card">
+                                <img src="assets/images/tf2.jpeg" class="card-img" alt="Action Games">
+                                <div class="card-body">
+                                    <h3 class="h4 mb-2">Action Games</h3>
+                                    <p class="mb-3">Fast-paced thrills and excitement</p>
+                                    <a href="#" class="btn btn-light btn-sm">View Reviews</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="featured-card card">
+                                <img src="assets/images/godofwar.jpg" class="card-img" alt="Adventure Games">
+                                <div class="card-body">
+                                    <h3 class="h4 mb-2">Adventure Games</h3>
+                                    <p class="mb-3">Story-driven experiences</p>
+                                    <a href="#" class="btn btn-light btn-sm">View Reviews</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Review Criteria -->
+            <section class="py-5 bg-light">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <h2 class="h1 mb-4">Our Review Process</h2>
+                            <div class="card review-card mb-3">
+                                <div class="card-body">
+                                    <h5 class="mb-2">Gameplay Analysis</h5>
+                                    <p class="mb-0">We thoroughly test mechanics, controls, and overall gameplay experience.</p>
+                                </div>
+                            </div>
+                            <div class="card review-card mb-3">
+                                <div class="card-body">
+                                    <h5 class="mb-2">Technical Performance</h5>
+                                    <p class="mb-0">Detailed analysis of graphics, frame rates, and stability across platforms.</p>
+                                </div>
+                            </div>
+                            <div class="card review-card mb-3">
+                                <div class="card-body">
+                                    <h5 class="mb-2">Value Assessment</h5>
+                                    <p class="mb-0">Evaluation of content, replayability, and price-to-quality ratio.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card shadow-lg">
+                                <div class="card-body p-4">
+                                    <h3 class="h4 mb-4">Rating System</h3>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="review-rating me-3">9-10</div>
+                                        <div>
+                                            <h6 class="mb-1">Masterpiece</h6>
+                                            <p class="small mb-0 text-muted">Revolutionary and exceptional</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="review-rating me-3">7-8</div>
+                                        <div>
+                                            <h6 class="mb-1">Great</h6>
+                                            <p class="small mb-0 text-muted">High quality with minor issues</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="review-rating me-3">5-6</div>
+                                        <div>
+                                            <h6 class="mb-1">Good</h6>
+                                            <p class="small mb-0 text-muted">Solid but with noticeable flaws</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     
-        <footer class="bg-dark text-light py-3 mt-4">
-            <div class="container text-center">
-                <p class="mb-0">&copy; 2025 GameHub. All rights reserved.</p>
+        <footer class="py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <h5 class="text-white mb-3">GameHub</h5>
+                        <p class="text-light mb-0">Your ultimate destination for game reviews, news, and community.</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5 class="text-white mb-3">Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+                            <li class="mb-2"><a href="news.html" class="text-light text-decoration-none">Latest News</a></li>
+                            <li class="mb-2"><a href="reviews.html" class="text-light text-decoration-none">Game Reviews</a></li>
+                            <li class="mb-2"><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5 class="text-white mb-3">Connect With Us</h5>
+                        <div class="d-flex gap-3 mb-3">
+                            <a href="#" class="text-light fs-5"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="text-light fs-5"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-light fs-5"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="text-light fs-5"><i class="bi bi-youtube"></i></a>
+                        </div>
+                        <p class="small text-light mb-0">&copy; 2025 GameHub. All rights reserved.</p>
+                    </div>
+                </div>
             </div>
         </footer>
+
+        <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+        <script src="js/guess.js"></script>
+        <script src="js/nav-active.js"></script>
+        <script src="js/ui.js"></script>
+        
+        <!-- jQuery UI CSS -->
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 </body>
 </html>

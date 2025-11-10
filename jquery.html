@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameHub — jQuery Demos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .demo-panel { 
+      margin-bottom: 24px;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      padding: 24px;
+      transition: transform 0.2s ease;
+    }
+    .demo-panel:hover {
+      transform: translateY(-4px);
+    }
+    .demo-panel h3 {
+      color: #1a1a1a;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #f0f0f0;
+    }
+    .thumb { 
+      width: 120px; 
+      height: 80px; 
+      object-fit: cover; 
+      cursor: pointer; 
+      margin-right: 12px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      border: 3px solid transparent;
+    }
+    .thumb:hover {
+      border-color: #0b6cf2;
+      transform: scale(1.05);
+    }
+    #animate-box { 
+      width: 80px; 
+      height: 80px; 
+      background: linear-gradient(135deg, #0b6cf2, #084ea8);
+      margin: 20px;
+      position: relative;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(11, 108, 242, 0.2);
+    }
+    #ball { 
+      width: 40px; 
+      height: 40px; 
+      background: linear-gradient(135deg, #ff7a59, #ff5c33);
+      border-radius: 50%; 
+      position: relative; 
+      left: 0;
+      box-shadow: 0 4px 15px rgba(255, 122, 89, 0.3);
+    }
+    #gallery-large {
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    #gallery-large:hover {
+      transform: scale(1.02);
+    }
+    .acc-toggle {
+      width: 100%;
+      text-align: left;
+      padding: 12px 16px;
+      background: #f8f9fa;
+      border: none;
+      border-radius: 8px;
+      color: #1a1a1a;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .acc-toggle:hover {
+      background: #e9ecef;
+      color: #0b6cf2;
+    }
+    .acc-panel {
+      padding: 16px;
+      background: #fff;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+    #ball-area {
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      border-radius: 12px;
+      border: 1px solid #dee2e6;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #0b6cf2, #084ea8);
+      border: none;
+      box-shadow: 0 4px 15px rgba(11, 108, 242, 0.2);
+    }
+    .btn-primary:hover {
+      background: #084ea8;
+      transform: translateY(-2px);
+    }
+    .form-control {
+      border-radius: 8px;
+      border: 2px solid #e9ecef;
+      padding: 8px 12px;
+    }
+    .form-control:focus {
+      border-color: #0b6cf2;
+      box-shadow: 0 0 0 3px rgba(11, 108, 242, 0.1);
+    }
+    .list-group-item {
+      border-radius: 8px !important;
+      margin-bottom: 8px;
+      border: 1px solid #e9ecef;
+      padding: 12px 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">GameHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+            <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+            <li class="nav-item"><a class="nav-link" href="games.html">Games</a></li>
+            <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
+            <li class="nav-item"><a class="nav-link" href="todo.html">To-Do</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="jquery.html">jQuery</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="py-4">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h1 class="display-4 mb-3">jQuery Interactive Demos</h1>
+        <p class="lead text-muted">Explore dynamic web interactions with jQuery through these interactive examples</p>
+      </div>
+
+      <section class="demo-panel">
+        <h3>
+          <i class="bi bi-code-slash me-2"></i>
+          Selectors & Dynamic Styling
+        </h3>
+        <div class="bg-light p-4 rounded-3 mb-3">
+          <p id="sel-par" class="fs-5 mb-3">This paragraph will be dynamically updated with jQuery.</p>
+          <button id="sel-btn" class="btn btn-primary">
+            <i class="bi bi-magic me-2"></i>Transform Text & Style
+          </button>
+        </div>
+      </section>
+
+      <section class="demo-panel">
+        <h3>
+          <i class="bi bi-toggles me-2"></i>
+          Interactive Effects
+        </h3>
+        <div class="bg-light p-4 rounded-3 mb-4">
+          <p id="effect-par" class="fs-5 mb-3">Click the buttons below to toggle visibility effects!</p>
+          <div class="d-flex gap-2 mb-3">
+            <button id="hide-btn" class="btn btn-danger">
+              <i class="bi bi-eye-slash me-2"></i>Hide
+            </button>
+            <button id="show-btn" class="btn btn-success">
+              <i class="bi bi-eye me-2"></i>Show
+            </button>
+            <button id="toggle-btn" class="btn btn-secondary">
+              <i class="bi bi-toggle-on me-2"></i>Toggle
+            </button>
+          </div>
+        </div>
+
+        <div class="row align-items-center bg-light p-4 rounded-3 mb-4">
+          <div class="col-md-6">
+            <img id="effect-img" src="assets/images/ed.webp" alt="Elden Ring" class="img-fluid rounded-3 shadow-sm" style="width:100%; height:200px; object-fit:cover; display:block;">
+          </div>
+          <div class="col-md-6">
+            <h5 class="mb-3">Fade Effects</h5>
+            <div class="d-flex gap-2">
+              <button id="fade-in" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-up-circle me-2"></i>Fade In
+              </button>
+              <button id="fade-out" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-down-circle me-2"></i>Fade Out
+              </button>
+              <button id="fade-toggle" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-repeat me-2"></i>Toggle
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-light p-4 rounded-3">
+          <h5 class="mb-3">Slide Panel</h5>
+          <div id="slide-panel" class="p-4 bg-white rounded-3 shadow-sm mb-3">
+            <h6 class="mb-2">Collapsible Content</h6>
+            <p class="mb-0">This panel demonstrates jQuery's slide animations. Click the buttons below to control it!</p>
+          </div>
+          <div class="d-flex gap-2">
+            <button id="slide-up" class="btn btn-outline-secondary">
+              <i class="bi bi-chevron-up me-2"></i>Slide Up
+            </button>
+            <button id="slide-down" class="btn btn-outline-secondary">
+              <i class="bi bi-chevron-down me-2"></i>Slide Down
+            </button>
+            <button id="slide-toggle" class="btn btn-outline-secondary">
+              <i class="bi bi-chevron-expand me-2"></i>Toggle
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-panel">
+        <h3>
+          <i class="bi bi-braces me-2"></i>
+          DOM Manipulation
+        </h3>
+        
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="bg-light p-4 rounded-3 h-100">
+              <h5 class="mb-3">Dynamic List</h5>
+              <ul id="demo-list" class="list-group mb-3"></ul>
+              <div class="d-flex gap-2">
+                <input id="item-text" class="form-control" placeholder="Enter new item text...">
+                <button id="add-item" class="btn btn-primary">
+                  <i class="bi bi-plus-lg me-2"></i>Add
+                </button>
+                <button id="remove-item" class="btn btn-danger">
+                  <i class="bi bi-trash me-2"></i>Remove
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 mb-4">
+            <div class="bg-light p-4 rounded-3 h-100">
+              <h5 class="mb-3">Dynamic Content</h5>
+              <div class="text-center mb-3">
+                <img id="demo-image" src="assets/images/godofwar.jpg" alt="Game Image" 
+                     class="img-fluid rounded-3 shadow-sm" style="width:100%; height:200px; object-fit:cover;">
+              </div>
+              <div class="d-flex gap-2 justify-content-center">
+                <button id="change-src" class="btn btn-outline-primary">
+                  <i class="bi bi-image me-2"></i>Switch Image
+                </button>
+                <button id="change-link" class="btn btn-outline-primary">
+                  <i class="bi bi-link-45deg me-2"></i>Change Link
+                </button>
+              </div>
+              <div class="text-center mt-3">
+                <a id="demo-link" href="https://example.com" target="_blank" class="text-decoration-none">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Visit Link
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-panel">
+        <h3>
+          <i class="bi bi-stars me-2"></i>
+          Animations
+        </h3>
+        <div class="bg-light p-4 rounded-3">
+          <div class="text-center mb-4">
+            <div id="animate-box" class="mx-auto"></div>
+          </div>
+          <div class="text-center">
+            <button id="run-anim" class="btn btn-primary">
+              <i class="bi bi-play-circle me-2"></i>Run Animation Sequence
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-panel">
+        <h3>
+          <i class="bi bi-grid me-2"></i>
+          Interactive Features
+        </h3>
+        
+        <div class="row mb-4">
+          <div class="col-lg-8">
+            <div class="bg-light p-4 rounded-3">
+              <h5 class="mb-3">
+                <i class="bi bi-images me-2"></i>Image Gallery
+              </h5>
+              <div id="gallery" class="d-flex gap-3 mb-4 flex-wrap">
+                <img class="thumb" data-large="assets/images/ed.webp" src="assets/images/ed.webp" alt="Elden Ring">
+                <img class="thumb" data-large="assets/images/godofwar.jpg" src="assets/images/godofwar.jpg" alt="God of War">
+                <img class="thumb" data-large="assets/images/tf2.jpeg" src="assets/images/tf2.jpeg" alt="Team Fortress 2">
+              </div>
+              <div class="text-center">
+                <img id="gallery-large" src="assets/images/ed.webp" class="img-fluid" 
+                     style="width:100%; height:400px; object-fit:cover;">
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4">
+            <div class="bg-light p-4 rounded-3 h-100">
+              <h5 class="mb-3">
+                <i class="bi bi-list-nested me-2"></i>Accordion Menu
+              </h5>
+              <div class="accordion" id="demo-accordion">
+                <div class="mb-3">
+                  <button class="acc-toggle w-100">
+                    <i class="bi bi-chevron-right me-2"></i>Gaming News
+                  </button>
+                  <div class="acc-panel">
+                    <p class="mb-0">Latest updates and announcements from the gaming world.</p>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <button class="acc-toggle w-100">
+                    <i class="bi bi-chevron-right me-2"></i>Game Reviews
+                  </button>
+                  <div class="acc-panel">
+                    <p class="mb-0">Expert reviews and ratings of the newest games.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-light p-4 rounded-3">
+          <h5 class="mb-3">
+            <i class="bi bi-circle me-2"></i>Bouncing Ball Animation
+          </h5>
+          <div id="ball-area" class="mb-3">
+            <div id="ball"></div>
+          </div>
+          <div class="text-center">
+            <button id="start-ball" class="btn btn-primary">
+              <i class="bi bi-play-circle me-2"></i>Start Animation
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <div class="text-center py-5">
+        <p class="text-muted mb-0">Made with <i class="bi bi-heart-fill text-danger"></i> and jQuery</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <h5 class="text-white mb-3">GameHub</h5>
+                <p class="text-light mb-0">Your ultimate destination for game reviews, news, and community.</p>
+            </div>
+            <div class="col-lg-4">
+                <h5 class="text-white mb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+                    <li class="mb-2"><a href="news.html" class="text-light text-decoration-none">Latest News</a></li>
+                    <li class="mb-2"><a href="reviews.html" class="text-light text-decoration-none">Game Reviews</a></li>
+                    <li class="mb-2"><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h5 class="text-white mb-3">Connect With Us</h5>
+                <div class="d-flex gap-3 mb-3">
+                    <a href="#" class="text-light fs-5"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-light fs-5"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-light fs-5"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-light fs-5"><i class="bi bi-youtube"></i></a>
+                </div>
+                <p class="small text-light mb-0">&copy; 2025 GameHub. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-demo.js"></script>
+</body>
+</html>

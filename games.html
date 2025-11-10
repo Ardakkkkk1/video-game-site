@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameHub — Games</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">GameHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+            <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+            <li class="nav-item"><a class="nav-link" href="games.html">Games</a></li>
+            <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
+            <li class="nav-item"><a class="nav-link" href="todo.html">To-Do</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="jquery.html">jQuery</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero mb-0">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="display-4 mb-3">Game Zone</h1>
+                    <p class="lead mb-4">Explore our collection of interactive games, demos, and gaming challenges.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#featured-games" class="btn btn-light">
+                            <i class="bi bi-controller me-2"></i>Play Games
+                        </a>
+                        <a href="#leaderboard" class="btn btn-outline-light">
+                            <i class="bi bi-trophy me-2"></i>Leaderboard
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block text-center">
+                    <img src="assets/images/godofwar.jpg" alt="Featured Game" class="img-fluid rounded-3 shadow-lg" style="max-height: 300px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Games -->
+    <section class="py-5 bg-light" id="featured-games">
+        <div class="container">
+            <h2 class="h1 mb-4">Featured Games</h2>
+            <div class="row g-4">
+                <!-- Number Guessing Game -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card game-card h-100">
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <i class="bi bi-dice-6 fs-1 text-primary"></i>
+                            </div>
+                            <h3 class="h4 text-center mb-3">Number Guessing Game</h3>
+                            <div id="guess-game" class="mb-4">
+                                <div class="mb-3 text-center">
+                                    <button id="guess-start" class="btn btn-primary">
+                                        <i class="bi bi-play-circle me-2"></i>Start Game
+                                    </button>
+                                    <button id="guess-reset" class="btn btn-outline-secondary ms-2">
+                                        <i class="bi bi-arrow-counterclockwise me-2"></i>Reset
+                                    </button>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input id="guess-input" class="form-control" type="number" min="1" max="100" 
+                                           placeholder="Enter number (1-100)" disabled>
+                                    <button id="guess-submit" class="btn btn-success" type="button" disabled>
+                                        <i class="bi bi-check-lg"></i>
+                                    </button>
+                                </div>
+                                <div class="text-center">
+                                    <p id="guess-feedback" class="mb-1 fw-bold">Click Start to begin!</p>
+                                    <p id="guess-attempts" class="small text-muted"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Memory Card Game -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card game-card h-100">
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <i class="bi bi-grid-3x3 fs-1 text-primary"></i>
+                            </div>
+                            <h3 class="h4 text-center mb-3">Memory Match</h3>
+                            <p class="text-center mb-4">Test your memory by matching pairs of cards. Coming soon!</p>
+                            <div class="text-center">
+                                <button class="btn btn-outline-primary" disabled>
+                                    <i class="bi bi-clock me-2"></i>Coming Soon
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Word Scramble -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card game-card h-100">
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <i class="bi bi-fonts fs-1 text-primary"></i>
+                            </div>
+                            <h3 class="h4 text-center mb-3">Word Scramble</h3>
+                            <p class="text-center mb-4">Unscramble gaming-related words against the clock. Coming soon!</p>
+                            <div class="text-center">
+                                <button class="btn btn-outline-primary" disabled>
+                                    <i class="bi bi-clock me-2"></i>Coming Soon
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section class="py-5" id="leaderboard">
+        <div class="container">
+            <h2 class="h1 mb-4">Top Players</h2>
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Player</th>
+                                    <th>Game</th>
+                                    <th>Score</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="bi bi-trophy-fill text-warning"></i> 1</td>
+                                    <td>Player123</td>
+                                    <td>Number Guess</td>
+                                    <td>5 attempts</td>
+                                    <td>Oct 29, 2025</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="bi bi-trophy-fill text-secondary"></i> 2</td>
+                                    <td>GamerPro</td>
+                                    <td>Number Guess</td>
+                                    <td>6 attempts</td>
+                                    <td>Oct 28, 2025</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="bi bi-trophy-fill" style="color: #cd7f32;"></i> 3</td>
+                                    <td>GameMaster</td>
+                                    <td>Number Guess</td>
+                                    <td>7 attempts</td>
+                                    <td>Oct 27, 2025</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="h3 mb-4">Want to Submit Your Game?</h2>
+                    <p class="mb-4">Are you a developer? Submit your game to be featured in our game collection!</p>
+                    <a href="#" class="btn btn-primary">
+                        <i class="bi bi-upload me-2"></i>Submit Your Game
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  <footer class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <h5 class="text-white mb-3">GameHub</h5>
+                <p class="text-light mb-0">Your ultimate destination for game reviews, news, and community.</p>
+            </div>
+            <div class="col-lg-4">
+                <h5 class="text-white mb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+                    <li class="mb-2"><a href="news.html" class="text-light text-decoration-none">Latest News</a></li>
+                    <li class="mb-2"><a href="reviews.html" class="text-light text-decoration-none">Game Reviews</a></li>
+                    <li class="mb-2"><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h5 class="text-white mb-3">Connect With Us</h5>
+                <div class="d-flex gap-3 mb-3">
+                    <a href="#" class="text-light fs-5"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-light fs-5"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-light fs-5"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-light fs-5"><i class="bi bi-youtube"></i></a>
+                </div>
+                <p class="small text-light mb-0">&copy; 2025 GameHub. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/guess.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/nav-active.js"></script>
+</body>
+</html>

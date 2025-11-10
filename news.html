@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GameHub - News</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Custom page styles -->
+    <style>
+        .news-category {
+            background: var(--gradient-gaming);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .news-date {
+            color: var(--muted-700);
+            font-size: 0.9rem;
+        }
+        .featured-card .badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
         <header>
@@ -22,66 +45,244 @@
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
-                            <li class="nav-item"><a class="nav-link active" href="news.html">News</a></li>
+                            <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                            <li class="nav-item"><a class="nav-link" href="games.html">Games</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
+                            <li class="nav-item"><a class="nav-link" href="todo.html">To-Do</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="jquery.html">jQuery</a></li>
+                            <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                            <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
-        <main class="py-4 news-main">
-            <div class="container-xl px-3 news-content">
-                <section class="site-panel">
-                    <div class="news-hero mb-3">
-                        <h2 class="mb-2">Gaming News</h2>
-                        <p class="lead">Latest updates, releases and esports highlights — short, visual cards for quick reading.</p>
-                    </div>
-
-                    <div class="news-grid row g-4" aria-live="polite">
-                        <div class="col-12 col-md-6 col-xl-4">
-                            <article class="card h-100">
-                                <img src="assets/images/SonyPS5ProwithLogo.jpg" class="card-img-top" alt="God of War announcement">
-                                <div class="card-body d-flex flex-column">
-                                    <h3 class="card-title h5">New Console Announced</h3>
-                                    <p class="text-muted news-date mb-2"><time datetime="2025-09-20">September 20, 2025</time></p>
-                                    <p class="card-text flex-grow-1">Details on the next‑gen hardware that promises immersive performance and a redesigned controller.</p>
-                                    <a href="#" class="btn btn-primary mt-3 align-self-start">Read more</a>
-                                </div>
-                            </article>
+        <main>
+            <!-- Hero Section -->
+            <section class="hero mb-0">
+                <div class="container py-5">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 hero-content">
+                            <h1 class="display-4 mb-3">Gaming News</h1>
+                            <p class="lead mb-4">Stay updated with the latest gaming news, releases, updates, and esports coverage.</p>
+                            <div class="d-flex gap-3">
+                                <a href="#trending" class="btn btn-light">
+                                    <i class="bi bi-fire me-2"></i>Trending
+                                </a>
+                                <a href="#categories" class="btn btn-outline-light">
+                                    <i class="bi bi-grid me-2"></i>Categories
+                                </a>
+                            </div>
                         </div>
-
-                        <div class="col-12 col-md-6 col-xl-4">
-                            <article class="card h-100">
-                                <img src="assets/images/cs2.jpg" class="card-img-top" alt="Esports highlights">
-                                <div class="card-body d-flex flex-column">
-                                    <h3 class="card-title h5">Esports Tournament Results</h3>
-                                    <p class="text-muted news-date mb-2"><time datetime="2025-09-15">September 15, 2025</time></p>
-                                    <p class="card-text flex-grow-1">Championship highlights and the moments that defined the weekend's matches.</p>
-                                    <a href="#" class="btn btn-primary mt-3 align-self-start">Read more</a>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-xl-4">
-                            <article class="card h-100">
-                                <img src="assets/images/ed.webp" class="card-img-top" alt="Indie release">
-                                <div class="card-body d-flex flex-column">
-                                    <h3 class="card-title h5">Indie Release Preview</h3>
-                                    <p class="text-muted news-date mb-2"><time datetime="2025-09-10">September 10, 2025</time></p>
-                                    <p class="card-text flex-grow-1">A first look at the upcoming indie title receiving praise at recent festivals.</p>
-                                    <a href="#" class="btn btn-primary mt-3 align-self-start">Read more</a>
-                                </div>
-                            </article>
+                        <div class="col-lg-6 d-none d-lg-block text-center">
+                            <img src="assets/images/cs2.jpg" alt="Featured News" class="img-fluid rounded-3 shadow-lg" style="max-height: 300px; object-fit: cover;">
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
+
+            <!-- Breaking News -->
+            <section class="py-5 bg-light" id="trending">
+                <div class="container">
+                    <h2 class="h1 mb-4">Breaking News</h2>
+                    <div class="card featured-card mb-4">
+                        <div class="row g-0">
+                            <div class="col-lg-8">
+                                <img src="assets/images/SonyPS5ProwithLogo.jpg" class="img-fluid rounded-start h-100" alt="PS5 Pro Announcement" style="object-fit: cover;">
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card-body h-100 d-flex flex-column">
+                                    <span class="badge bg-danger mb-2">Breaking</span>
+                                    <h3 class="h2 mb-3">Next-Gen Console Revolution</h3>
+                                    <p class="flex-grow-1">Sony unveils groundbreaking next-gen hardware with revolutionary features and enhanced performance capabilities.</p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <i class="bi bi-clock me-2"></i>
+                                            <span>2 hours ago</span>
+                                        </div>
+                                        <a href="#" class="btn btn-primary">Read Full Story</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <article class="card news-card h-100">
+                                <img src="assets/images/cs2.jpg" class="card-img-top" alt="Esports Tournament">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="news-category me-2">Esports</span>
+                                        <span class="news-date">September 15, 2025</span>
+                                    </div>
+                                    <h3 class="h5 mb-3">Major Tournament Upset</h3>
+                                    <p class="card-text">Underdogs make history in the championship finals with an unexpected victory.</p>
+                                    <div class="mt-3 d-flex justify-content-between align-items-center">
+                                        <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-chat-dots me-2"></i>
+                                            <span>24 Comments</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <article class="card news-card h-100">
+                                <img src="assets/images/ed.webp" class="card-img-top" alt="Elden Ring">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="news-category me-2">Industry</span>
+                                        <span class="news-date">September 10, 2025</span>
+                                    </div>
+                                    <h3 class="h5 mb-3">Indie Game Breakthrough</h3>
+                                    <p class="card-text">Independent studio's latest release receives widespread critical acclaim.</p>
+                                    <div class="mt-3 d-flex justify-content-between align-items-center">
+                                        <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-chat-dots me-2"></i>
+                                            <span>18 Comments</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <article class="card news-card h-100">
+                                <img src="assets/images/godofwar.jpg" class="card-img-top" alt="God of War">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="news-category me-2">Updates</span>
+                                        <span class="news-date">September 8, 2025</span>
+                                    </div>
+                                    <h3 class="h5 mb-3">Major Update Released</h3>
+                                    <p class="card-text">Highly anticipated content update brings new features and improvements.</p>
+                                    <div class="mt-3 d-flex justify-content-between align-items-center">
+                                        <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-chat-dots me-2"></i>
+                                            <span>32 Comments</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- News Categories -->
+            <section class="py-5" id="categories">
+                <div class="container">
+                    <h2 class="h1 mb-4">News Categories</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="featured-card card">
+                                <img src="assets/images/cs2.jpg" class="card-img" alt="Esports">
+                                <div class="card-body">
+                                    <h3 class="h4 mb-2">Esports</h3>
+                                    <p class="mb-3">Tournament coverage and team updates</p>
+                                    <a href="#" class="btn btn-light btn-sm">View News</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="featured-card card">
+                                <img src="assets/images/godofwar.jpg" class="card-img" alt="Game Updates">
+                                <div class="card-body">
+                                    <h3 class="h4 mb-2">Game Updates</h3>
+                                    <p class="mb-3">Latest patches and content releases</p>
+                                    <a href="#" class="btn btn-light btn-sm">View News</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="featured-card card">
+                                <img src="assets/images/ed.webp" class="card-img" alt="Industry News">
+                                <div class="card-body">
+                                    <h3 class="h4 mb-2">Industry News</h3>
+                                    <p class="mb-3">Gaming industry developments</p>
+                                    <a href="#" class="btn btn-light btn-sm">View News</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter -->
+            <section class="py-5 bg-light">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <h2 class="h3 mb-4">Stay in the Game</h2>
+                            <p class="mb-4">Subscribe to our newsletter for daily gaming news updates.</p>
+                            <form class="d-flex gap-2">
+                                <input type="email" class="form-control" placeholder="Enter your email">
+                                <button type="submit" class="btn btn-primary">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
-        <footer class="bg-dark text-light py-3 mt-4">
-            <div class="container text-center">
-                <p class="mb-0">&copy; 2025 GameHub. All rights reserved.</p>
+        <footer class="py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <h5 class="text-white mb-3">GameHub News</h5>
+                        <p class="text-light mb-0">Your daily source for gaming news, updates, and industry insights.</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5 class="text-white mb-3">News Categories</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none">Breaking News</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none">Esports Coverage</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none">Game Updates</a></li>
+                            <li class="mb-2"><a href="#" class="text-light text-decoration-none">Industry News</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5 class="text-white mb-3">Follow Gaming News</h5>
+                        <div class="d-flex gap-3 mb-3">
+                            <a href="#" class="text-light fs-5"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="text-light fs-5"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-light fs-5"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="text-light fs-5"><i class="bi bi-youtube"></i></a>
+                            <a href="#" class="text-light fs-5"><i class="bi bi-twitch"></i></a>
+                        </div>
+                        <p class="small text-light mb-0">&copy; 2025 GameHub. All rights reserved.</p>
+                    </div>
+                </div>
             </div>
         </footer>
+
+        <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/ui.js"></script>
+        <script src="js/nav-active.js"></script>
+        
+        <!-- News page specific scripts -->
+        <script>
+            // Animate news cards on scroll
+            document.addEventListener('DOMContentLoaded', function() {
+                const cards = document.querySelectorAll('.news-card');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-fadeUp');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                cards.forEach(card => observer.observe(card));
+            });
+        </script>
 </body>
 </html>
